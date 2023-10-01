@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Bread</title>
+</head>
+<body>
+<h1>Bread Form</h1>
+<form id="breadForm" method="post">
+    <label>Type: <input type="text" name="breadType"></label><br/>
+    <div id="ingredients">
+        <!-- Initial ingredient inputs -->
+        <div class="ingredient">
+            <label>Ingredient Name: <input type="text" name="ingredientNames[]"></label>
+            <label>Weight (grams): <input type="number" name="ingredientWeights[]"></label>
+        </div>
+    </div>
+    <button type="button" id="addIngredient">Add Ingredient</button><br/>
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+        document.getElementById("addIngredient").addEventListener("click", function() {
+            const ingredientsContainer = document.getElementById("ingredients");
+            const ingredientCount = ingredientsContainer.getElementsByClassName("ingredient").length + 1;
+
+            const newIngredient = document.createElement("div");
+            newIngredient.classList.add("ingredient");
+            newIngredient.innerHTML = `
+                <label>Ingredient Name ${ingredientCount}: <input type="text" name="ingredientNames[]"></label>
+                <label>Weight (grams) ${ingredientCount}: <input type="number" name="ingredientWeights[]"></label>
+            `;
+
+            ingredientsContainer.appendChild(newIngredient);
+        });
+    </script>
+</body>
+</html>
