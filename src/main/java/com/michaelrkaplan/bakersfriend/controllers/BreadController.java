@@ -31,8 +31,7 @@ public class BreadController {
 
         Bread bread = new Bread(breadType, ingredients);
 
-        // You can do something with the 'bread' object here
-        // For example, save it to a database
+        // TODO save 'bread' object to a database
 
         return "redirect:/bread-form"; // Redirect back to the form
     }
