@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Bread List</title>
+</head>
+<body>
+<h1>Bread List</h1>
+
+<!-- Add a button to redirect back to the bread-create template -->
+<a href="/bread-create" class="btn btn-primary">Create New Bread</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>Bread Type</th>
+        <th>Ingredients</th>
+        <th>Total Weight (grams)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Iterate over the list of breads -->
+    <tr th:each="bread : ${breads}">
+        <td th:text="${bread.breadType}"></td>
+        <td>
+            <ul>
+                <!-- Iterate over the ingredients of each bread and display them -->
+                <li th:each="ingredient : ${bread.ingredients}">
+                    <span th:text="${ingredient.name}"></span> (<span th:text="${ingredient.weightGrams}"></span> grams)
+                </li>
+            </ul>
+        </td>
+        <td th:text="${bread.getTotalWeight}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

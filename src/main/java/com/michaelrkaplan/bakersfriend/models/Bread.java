@@ -6,8 +6,6 @@ public class Bread {
     private String breadType;
     private List<Ingredient> ingredients;
 
-    // Constructors, getters, and setters
-
     public Bread() {
         // Default constructor
     }
@@ -31,6 +29,14 @@ public class Bread {
 
     public void setIngredients(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
+    }
+
+    public int getTotalWeight() {
+        int totalWeight = 0;
+        for (Ingredient ingredient : ingredients) {
+            totalWeight += ingredient.getWeightGrams();
+        }
+        return totalWeight;
     }
 
     @Override

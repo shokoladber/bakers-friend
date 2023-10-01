@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Bread Form</h1>
-<form id="breadForm" method="post">
+<form id="breadCreate" method="post">
     <label>Type: <input type="text" name="breadType"></label><br/>
     <div id="ingredients">
         <!-- Initial ingredient inputs -->
@@ -27,8 +27,8 @@
             const newIngredient = document.createElement("div");
             newIngredient.classList.add("ingredient");
             newIngredient.innerHTML = `
-                <label>Ingredient Name ${ingredientCount}: <input type="text" name="ingredientNames[]"></label>
-                <label>Weight (grams) ${ingredientCount}: <input type="number" name="ingredientWeights[]"></label>
+                <label>Ingredient Name ${ingredientCount}: <input type="text" name="ingredientNames"></label>
+                <label>Weight (grams) ${ingredientCount}: <input type="number" name="ingredientWeights"></label>
             `;
 
             ingredientsContainer.appendChild(newIngredient);
